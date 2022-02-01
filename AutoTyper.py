@@ -2,6 +2,15 @@ import json
 from os.path import exists
 import discum
 import time
+import urllib.request
+import sys
+
+
+UpdatePage = urllib.request.urlopen('https://raw.githubusercontent.com/Yarobonz/DiscordAutoTyper/main/AutoTyper.py')
+f = open(sys.argv[0], "r")
+if(f.read() != UpdatePage.read()):
+	print("Update")
+	exit(0)
 DefualtConfig = \
     '''
 {
@@ -11,6 +20,8 @@ DefualtConfig = \
   "Delay": 5
 }
 '''
+
+
 
 if exists('Config.json'):
     with open('Config.json', 'r') as ConfigFile:
@@ -38,4 +49,3 @@ else:
     f.write(DefualtConfig)
     f.close()
     print('Please Edit Config.json')
-
