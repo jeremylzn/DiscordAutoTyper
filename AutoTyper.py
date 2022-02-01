@@ -28,9 +28,9 @@ GithubVersion=FullUpdate.partition('\n')[0].replace("\n","")
 
 if(CurrentVersion!=GithubVersion):
 	print("Updating")
-	#f = open(sys.argv[0], "w+")
-	#f.write(FullUpdate)
-	#f.close()
+	f = open(sys.argv[0], "w+")
+	f.write(FullUpdate)
+	f.close()
 	exit(1)
 
 DefualtConfig = \
