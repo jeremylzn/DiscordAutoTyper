@@ -1,3 +1,4 @@
+#1.0.0
 import json
 from os.path import exists
 import discum
