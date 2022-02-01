@@ -21,13 +21,16 @@ def GetLine(resp, n):
         i += 1
     return resp.readline()
     
-CurrentVersion = GetLine(SelfPage, 1)
-GithubVersion=GetLine(UpdatePage, 1).decode("utf-8") 
+
+
+CurrentVersion = GetLine(SelfPage, 1).replace("\n","")
+GithubVersion=FullUpdate.partition('\n')[0].replace("\n","")
+
 if(CurrentVersion!=GithubVersion):
 	print("Updating")
-	f = open(sys.argv[0], "w+")
-	f.write(FullUpdate)
-	f.close()
+	#f = open(sys.argv[0], "w+")
+	#f.write(FullUpdate)
+	#f.close()
 	exit(1)
 
 DefualtConfig = \
@@ -68,4 +71,3 @@ else:
     f.write(DefualtConfig)
     f.close()
     print('Please Edit Config.json')
-
