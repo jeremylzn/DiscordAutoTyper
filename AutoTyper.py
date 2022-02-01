@@ -9,11 +9,12 @@ import sys
 UpdatePage = urllib.request.urlopen('https://raw.githubusercontent.com/Yarobonz/DiscordAutoTyper/main/AutoTyper.py')
 
 f = open(sys.argv[0], "r")
-#print(f.read()) 
-if(f.read() != UpdatePage.read().decode("utf-8")):
-	print("Update")
+SelfFile=f.read() 
+Website=UpdatePage.read().decode("utf-8")
+if(SelfFile != Website):
+	print(SelfFile)
 	exit(0)
-#print(UpdatePage.read().decode("utf-8"))
+
 DefualtConfig = \
     '''
 {
