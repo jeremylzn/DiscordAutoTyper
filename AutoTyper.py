@@ -9,12 +9,26 @@ import sys
 
 UpdatePage = urllib.request.urlopen('https://raw.githubusercontent.com/Yarobonz/DiscordAutoTyper/main/AutoTyper.py')
 
-f = open(sys.argv[0], "r")
-SelfFile=f.read() 
-Website=UpdatePage.read().decode("utf-8")
-if(SelfFile != Website):
-	print(SelfFile)
-	exit(0)
+FullUpdate=UpdatePage.read().decode("utf-8")
+
+SelfPage = open(sys.argv[0], "r") 
+
+
+def GetLine(resp, n):
+    i = 1
+    while i < n:
+        resp.readline()
+        i += 1
+    return resp.readline()
+    
+CurrentVersion = GetLine(SelfPage, 1)
+GithubVersion=GetLine(UpdatePage, 1).decode("utf-8") 
+if(CurrentVersion!=GithubVersion):
+	print("Updating")
+	f = open(sys.argv[0], "w+")
+	f.write(FullUpdate)
+	f.close()
+	exit(1)
 
 DefualtConfig = \
     '''
