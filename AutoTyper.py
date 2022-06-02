@@ -36,9 +36,9 @@ if(CurrentVersion!=GithubVersion):
 DefualtConfig = \
     '''
 {
-  "Token": "TOKEN",
-  "Message": "MESSAGE",
-  "ChannelID": "ID",
+  "Token": "OTczNTEzNDg2NDU1OTQzMjA4.G7p2KU.lSQfghscE31LOwRz84G5gf0D9lol2jrzCTWoAs",
+  "Message": "Salut",
+  "ChannelID": "976177683207708709",
   "Delay": 5
 }
 '''
@@ -58,7 +58,7 @@ if exists('Config.json'):
     data = '{"content":"' + Config['Message'] + '"}'
     while True:
         response = \
-            requests.post('https://discordapp.com/api/channels/920079912369553483/messages'
+            requests.post('https://discordapp.com/api/channels/' + Config['Message'] + '/messages'
                           , headers=headers, data=data)
         print(f"Sent Message | "+Config['Message']+"")
         print(f"Waiting | "+str(Config['Delay'])+"")
