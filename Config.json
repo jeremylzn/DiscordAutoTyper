@@ -1,7 +1,6 @@
 
 {
-  "Token": "OTczNTE1NjIxNDUzMTM1ODg0.GKPVMN.iFBZGDqe6VkJDVlckRAwyTLLSGnuH7fZIjggJM",
-  "Message": "test",
   "ChannelID": "976177683207708709",
-  "Delay": 5
+  "DelayMin": 5,
+  "DelayMax": 15
 }

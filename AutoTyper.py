@@ -82,7 +82,7 @@
 #     f.close()
 #     print('Please Edit Config.json')
 
-import requests
+import requests, json
 
 # User's Token
 # header = {
@@ -97,6 +97,11 @@ files = {
     "file" : ("./picture.jpg", open("./picture.jpg", 'rb')) # The picture that we want to send in binary
 }
 
+proxies = {
+   'http': 'http://xyliase:k3QsT6SBGD@188.130.220.136:5500',
+   'https': 'https://xyliase:k3QsT6SBGD@188.130.220.136:5500',
+}
+
 # Optional message to send with the picture
 payload = {
     "content":""
@@ -104,5 +109,8 @@ payload = {
 
 channel_id = "976177683207708709" # Channel where we send the picture
 
-r = requests.post(f"https://discord.com/api/v9/channels/{channel_id}/messages", data=payload, headers=header, files=files)
-print(r.content)
+r = requests.get('http://ip-api.com/json', proxies=proxies)
+print(json.dumps(r.json(), indent=2))
+
+# r = session.post(f"https://discord.com/api/channels/{channel_id}/messages", data=payload, headers=header, files=files, proxies=proxies)
+# print(r.content)
