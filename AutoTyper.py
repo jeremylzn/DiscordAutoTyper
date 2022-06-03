@@ -97,10 +97,10 @@ files = {
     "file" : ("./picture.jpg", open("./picture.jpg", 'rb')) # The picture that we want to send in binary
 }
 
-proxies = {
-   'http': 'http://xyliase:k3QsT6SBGD@188.130.220.136:5500',
-   'https': 'https://xyliase:k3QsT6SBGD@188.130.220.136:5500',
-}
+# proxies = {
+#    'http': 'http://xyliase:k3QsT6SBGD@188.130.220.136:5500',
+#    'https': 'https://xyliase:k3QsT6SBGD@188.130.220.136:5500',
+# }
 
 # Optional message to send with the picture
 payload = {
@@ -109,7 +109,8 @@ payload = {
 
 channel_id = "976177683207708709" # Channel where we send the picture
 
-r = requests.get('http://ip-api.com/json', proxies=proxies)
+# r = requests.get('http://ip-api.com/json', proxies=proxies)
+r = requests.get('http://ip-api.com/json')
 print(json.dumps(r.json(), indent=2))
 
 # r = session.post(f"https://discord.com/api/channels/{channel_id}/messages", data=payload, headers=header, files=files, proxies=proxies)
