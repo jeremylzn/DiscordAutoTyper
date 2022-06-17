@@ -33,7 +33,7 @@ def tokenChecker(token):
     return True if response.status_code == 200 else False
 
 def autoTyper(token, user_agent, proxy, message, picture, config):
-    logging.info(f"@ Sending message with token : {token}  - message : {message} - User Agent : {user_agent}")
+    logging.info(f" Sending message with token : {token}  - message : {message} - User Agent : {user_agent}")
 
     header = { 'Authorization': token, 'User-Agent': user_agent}
 
@@ -80,11 +80,11 @@ def main():
         selected_token = extractToken(random.choice(tokens))
         checking = tokenChecker(selected_token)
         if (checking):
-            logging.info(f"@ Token Actif")
+            logging.info(f" Token Actif")
 
             # Selection message type
             selected_mode = random.choice(message_mode)
-            logging.info(f"@ Mode selected is : {selected_mode}")
+            logging.info(f" Mode selected is : {selected_mode}")
             selected_message = ''
             selected_picture = False
             if selected_mode == 'message' or selected_mode == 'message and picture' :
@@ -106,10 +106,15 @@ def main():
             # Send message
             autoTyper(selected_token, random.choice(user_agents), random.choice(proxies), selected_message, selected_picture, config)
             waiting = random.randint(config['DelayMin'], config['DelayMax'])
-            logging.info(f"@ In waiting - {waiting} secondes")
+            logging.info(f" In waiting - {waiting} secondes")
             time.sleep(waiting)
-        else : logging.info(f"@ Token Not Actif - {selected_token}")
+        else : logging.info(f" Token Not Actif - {selected_token}")
 
 
 if __name__ == '__main__':
     main()
+
+
+
+
+
